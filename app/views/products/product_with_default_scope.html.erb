@@ -1,0 +1,12 @@
+<h1>Products With default Scope</h1>
+<table border="2px">
+    <thead>
+    <tr><th>Title</th><th>Is Active</th></tr>
+    </thead>
+    <%Product.where(is_active:"default_scope").each do |p|%>
+        <tr>
+            <td><%=p.title%></td>
+            <td><%=p.is_active%></td>
+        </tr>
+    <%end%>
+</table>

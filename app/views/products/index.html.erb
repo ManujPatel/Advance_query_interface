@@ -1,0 +1,23 @@
+<h1>Products#index</h1>
+<body>
+  <table>
+    <tr><center>Products Details </center></tr>
+    <tr>
+    <td>Id</td><td>Title</td><td>Price</td><td>Show</td><td>Edit</td><td>Delete</td>
+    </tr>
+    <% @products.each do |s| %>
+      <tr>
+        <td><%=s.id %></td>
+        <td><%=s.title%></td>
+        <td><%=s.price %></td>
+        <td><%= button_to 'Show', product_path(s), method: :get%></td>
+        <td><%= button_to 'Edit', edit_product_path(s), method: :get%></td>
+        <td><%= button_to 'Remove', product_path(s), method: :delete%></td>  
+      </tr>
+    <% end %>
+  </table>
+  <%= button_to "view Active Product", products_product_with_default_scope_path, method: :get%>
+  <%= button_to "view Product", products_display_product_path, method: :get %>
+
+</body>
+ 
