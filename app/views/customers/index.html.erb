@@ -1,0 +1,21 @@
+<h1>Customers#index</h1>
+<body>
+  <table>
+    <tr><center>Customes Details </center></tr>
+    <tr>
+    <td>Id</td><td>Fisrt Name</td><td>Last Name</td><td>Show</td><td>Edit</td><td>Delete</td>
+    </tr>
+    <% @customers.each do |s| %>
+      <tr>
+        <td><%=s.id %></td>
+        <td><%=s.fname %></td>
+        <td><%=s.lname %></td>
+        <td><%= button_to 'Show', customer_path(s), method: :get%></td>
+        <td><%= button_to 'Edit', edit_customer_path(s), method: :get%></td>
+        <td ><%= button_to 'Remove', customer_path(s), method: :delete%></td>  
+      </tr>
+    <% end %>
+  </table>
+  <%= button_to "Add a New Customer", new_customer_path, method: :get %> <br/>
+</body>
+<p>Find me in app/views/customers/index.html.erb</p>

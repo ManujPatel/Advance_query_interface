@@ -1,0 +1,35 @@
+<h1>Orders#index</h1>
+<body>
+  <table >
+    <tr><td colspan="5"><center>Orders Details </center></td><td colspan="5">
+    <div>
+    <%= form_tag orders_path, :method => 'get', class: 'input-group'  do %>
+      <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search by order status' %>
+      <span class="input-group-btn">
+        <%= submit_tag "search"%>
+      </span>
+    <% end %>
+    </div></td>
+    </tr>
+    <tr>
+    <td>Id</td><td>Product Id</td><td>Customer Id</td><td>Customer Name</td><td>Customer Email</td>
+    <td>Customer Phone</td><td>Order status </td>
+    <td>Show</td><td>Edit</td><td>Delete</td>
+    </tr>
+    <% @orders.each do |s| %>
+      <tr>
+        <td><%=s.id %></td>
+        <td><%=s.product_id %></td>
+        <td><%=s.customer_id %></td>
+        <td><%=s.customer.fname+" "+s.customer.lname  %></td>
+        <td><%=s.customer.email %></td>
+        <td><%=s.customer.phone_number %></td>
+        <td><%=s.status %></td>
+        <td><%= button_to 'Show', order_path(s), method: :get%></td>
+        <td><%= button_to 'Edit', edit_order_path(s), method: :get%></td>
+        <td><%= button_to 'Remove', order_path(s), method: :delete%></td>  
+      </tr>
+    <% end %>
+  </table>
+  <%= button_to "Add New Order", new_order_path, method: :get%><br/>
+</body>

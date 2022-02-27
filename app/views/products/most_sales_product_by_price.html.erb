@@ -1,0 +1,18 @@
+<h2>Top 3 customers with maximum expenses on product:</h2>
+<% Order.select("customer_id, sum(total_price) as Sum_of_Total_Price").group("customer_id").order(Sum_of_Total_Price: :desc).first(3).each do |a| %>
+
+    <strong> Sum_of_Total_Price:</strong>
+    <%= a.Sum_of_Total_Price %>
+
+    <strong>First Name:</strong>
+    <%= a.customer.fname %>
+
+    <strong>Last Name:</strong>
+    <%= a.customer.lname %>
+
+    <strong>Email:</strong>
+    <%= a.customer.email%>
+
+    <strong>Phone Number:</strong>
+    <%= a.customer.phone_number %>
+<% end %>

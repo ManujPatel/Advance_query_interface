@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  # frozen_string_literal: true
   before_action :set, only: [:show, :edit, :update, :destroy]
   def index
     @products = Product.all
@@ -29,10 +30,8 @@ class ProductsController < ApplicationController
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to product_url(@product), notice: "Product was successfully updated." }
-        format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
