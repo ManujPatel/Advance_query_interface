@@ -1,0 +1,38 @@
+<h1>Orders#show</h1>
+<p style="color: green"><%= notice%> 
+
+  <strong>Customer Details</strong>
+  
+    <strong>First Name:</strong>
+    <%= @order.customer.fname %>
+  
+    <strong>Last Name:</strong>
+    <%=@order.customer.lname %>
+  
+    <strong>Email:</strong>
+    <%= @order.customer.email%>
+  
+    <strong>Phone Number:</strong>
+    <%= @order.customer.phone_number %>
+  <strong>Product Details </strong>
+  
+    <strong>Product Price:</strong>
+    <%= @order.product.price %>
+  
+    <strong>Product Status:</strong>
+    <%= @order.product.status %>
+  <strong>Order Details</strong>
+  
+    <strong>Quantity:</strong>
+    <%= @order.quantity %>
+
+  
+    <strong>Total Price:</strong>
+    <%= @order.total_price %>
+  
+    <strong>Status:</strong>
+    <%= @order.status %>
+
+  <%= link_to "Edit this order", edit_order_path(@order) %><br/> <br/>
+  <%= link_to "Back to orders", orders_path %><br/><br/>
+  <%= button_to "Destroy this Order", @order, method: :delete %>

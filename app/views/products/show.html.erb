@@ -1,0 +1,21 @@
+<h1>Products#show</h1>
+    <strong>Title:</strong>
+    <%= @product.title %>
+
+    <strong>Description:</strong>
+    <%= @product.description%>
+
+    <strong>price:</strong>
+    <%= @product.price %>
+
+    <strong>capacity:</strong>
+    <%= @product.capacity %>
+
+    <strong>Is Active:</strong>
+    <%= @product.is_active %>
+
+    <strong>Status:</strong>
+    <%= @product.status %>
+  
+    <strong>No of orders for this product is :</strong>
+    <%= Order.where('product_id=?',@product).count %>

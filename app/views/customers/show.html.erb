@@ -1,0 +1,18 @@
+<h1>Customers#show</h1>
+<p style="color: green"><%= notice %></p>
+    <strong>First Name:</strong>
+    <%= @customer.fname %>
+  
+    <strong>Last Name:</strong>
+    <%= @customer.lname %>
+  
+    <strong>Email:</strong>
+    <%= @customer.email%>
+  
+    <strong>Phone Number:</strong>
+    <%= @customer.phone_number %>
+  
+  <%= button_to "Edit this customer", edit_customer_path(@customer), method: :get %><br/>
+  <%= button_to "Back to customers", customers_path, method: :get %><br/>
+  <%= button_to "Destroy this Customer", @customer, method: :delete %>
+

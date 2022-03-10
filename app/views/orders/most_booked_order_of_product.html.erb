@@ -1,0 +1,18 @@
+<h2>top 5 customer who has maximum booked orders:</h2>
+<% Order.group(:customer_id).having(status:'booked').reverse_order.first(5).each do |a| %>
+  
+    <strong> Total no of booked order:</strong>
+    <%= Order.where(customer_id:a.customer_id).where(status:'booked').count %>
+  
+    <strong>First Name:</strong>
+    <%= a.customer.fname %>
+  
+    <strong>Last Name:</strong>
+    <%= a.customer.lname %>
+  
+    <strong>Email:</strong>
+    <%= a.customer.email%>
+  
+    <strong>Phone Number:</strong>
+    <%= a.customer.phone_number %>
+<% end %>
